@@ -10,5 +10,17 @@ class ProductsController < ApplicationController
 
     redirect_to root_path
   end
+
+  def destroy
+    id = params[:id]
+    @product = Product.find(params[:id])
+    if @product.destroy
+      flash[:success] = 'Product was successfully deleted.'
+      redirect_to root_path
+    else
+      flash[:error] = 'Something went wrong'
+      redirect_to root_path
+    end
+  end
   
 end
