@@ -9,6 +9,7 @@
       <th>Description</th>
       <th>Price</th>
       <th>Amount</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +20,7 @@
         <td><%= product.description %></td>
         <td><%= product.price %></td>
         <td><%= product.amount %></td>
+        <td><%= button_to "Delete", product, method: :delete , class:"btn btn-danger", data: {confirm: "Are you sure? "} %></td>
       <tr>
     <% end %>
   </tbody>
