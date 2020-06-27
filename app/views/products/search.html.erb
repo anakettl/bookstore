@@ -1,0 +1,28 @@
+<div class="alert alert-success" role="alert">
+  <h3 class="alert-heading">Books</h3>
+</div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Author</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Amount</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.author %></td>
+        <td><%= product.description %></td>
+        <td><%= product.price %></td>
+        <td><%= product.amount %></td>
+        <td><%= button_to "Delete", product, method: :delete , class:"btn btn-danger", data: {confirm: "Are you sure? "} %></td>
+      <tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
