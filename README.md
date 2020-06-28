@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este é um projeto de livraria web
 
-Things you may want to cover:
+# Funcionalidades
+- CRUD de produtos
 
-* Ruby version
+# Versões:
 
-* System dependencies
+* Ruby: 2.5.1
 
-* Configuration
+* Rails: 5.2.4
 
-* Database creation
+* Rspec: 3.7
 
-* Database initialization
+* Bundler: 2.1.4
 
-* How to run the test suite
+* Postgres
 
-* Services (job queues, cache servers, search engines, etc.)
+# Configuração
+- Clonar o repositório
+- No terminal, dentro da pasta do projeto, instale as dependencias com `$ bundle install`
 
-* Deployment instructions
+# Criar e inicializar o banco de dados
+- Criar o banco de dados: `$ rails db:create`
+- Rodar as migrations: `$ rails db:migrate`
+- Incluir os seeds: `$ rails db:seed`
 
-* ...
+- Para subir o servidor use: `$ rails server`
+- Acesse localhost:3000
+
+# Rodar os testes
+- Na pasta do projeto: `$ rspec spec`
