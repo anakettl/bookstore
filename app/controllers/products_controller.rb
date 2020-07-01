@@ -5,11 +5,20 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product = params.require(:product).permit(:name, :author, :description, :price, :amount)
-    Product.create product
-
-    redirect_to root_path
+    data = params.require(:product).permit(:name, :author, :description, :price, :amount)
+    @product = Product.create data
+    if @product.save
+      flash[:notice] = "This product was succesfully saved!"
+      redirect_to root_path
+    else
+      render :new
+    end
   end
+
+  def new
+    @product = Product.new
+  end
+  
 
   def destroy
     id = params[:id]
