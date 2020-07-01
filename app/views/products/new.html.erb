@@ -1,5 +1,10 @@
+<% @product.errors.full_messages.each do |msg| %>
+  <div class="alert alert-danger" role="alert">
+    <%= msg %>
+  </div>
+<% end %>
 <h3>Create a new Product</h3>
-<%= form_for Product.new, url: {action: "create"} do |form| %>
+<%= form_for @product, url: {action: "create"} do |form| %>
 
   <div class="row">
     <div class="col-sm-8">
