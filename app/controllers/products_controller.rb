@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    data = params.require(:product).permit(:name, :author, :description, :price, :amount)
+    data = params.require(:product).permit(:name, :author, :description, :price, :amount, :department_id)
     @product = Product.create data
     if @product.save
       flash[:notice] = "This product was succesfully saved!"
@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @departments = Department.all
   end
   
 
