@@ -9,6 +9,7 @@
 <table class="table">
   <thead class="thead-dark">
     <tr>
+      <th>Department</th>
       <th>Name</th>
       <th>Author</th>
       <th>Description</th>
@@ -20,6 +21,7 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
+        <td><%= product.department.name %></td>
         <td><%= product.name %></td>
         <td><%= product.author %></td>
         <td><%= product.description %></td>
