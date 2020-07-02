@@ -5,7 +5,14 @@
 <% end %>
 <h3>Create a new Product</h3>
 <%= form_for @product, url: {action: "create"} do |form| %>
-
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="form-group">
+        <%= form.label :department %>
+        <%= form.collection_select :department_id, @departments, :id, :name, {}, class: "form-control" %>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-sm-8">
       <div class="form-group">
