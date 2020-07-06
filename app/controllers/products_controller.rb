@@ -4,8 +4,40 @@ class ProductsController < ApplicationController
     @products = Product.all.order(price: :desc)
   end
 
+  def edit
+    id = params[:id]
+    @product = Product.find(id)
+    @departments = Department.all
+    render :new
+  end
+
+  def update
+    id = params[:id]
+    @product = Product.find(id)
+    data = params.require(:product).permit(:name, 
+                                            :author, 
+                                            :description, 
+                                            :price, 
+                                            :amount, 
+                                            :department_id
+                                          )
+    if @product.update data
+      flash[:notice] = "This product was succesfully updated!"
+      redirect_to root_url
+    else
+      @departments = Department.all
+      render :new
+    end
+  end
+  
   def create
-    data = params.require(:product).permit(:name, :author, :description, :price, :amount, :department_id)
+    data = params.require(:product).permit(:name, 
+                                            :author, 
+                                            :description, 
+                                            :price, 
+                                            :amount, 
+                                            :department_id
+                                          )
     @product = Product.create data
     if @product.save
       flash[:notice] = "This product was succesfully saved!"
@@ -20,7 +52,6 @@ class ProductsController < ApplicationController
     @departments = Department.all
   end
   
-
   def destroy
     id = params[:id]
     @product = Product.find(params[:id])
@@ -37,5 +68,5 @@ class ProductsController < ApplicationController
     @name = params[:name]
     @products = Product.where "name like ?", "%#{@name}%"
   end
-  
+
 end
