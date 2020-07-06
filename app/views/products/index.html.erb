@@ -9,13 +9,13 @@
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th>Department</th>
-      <th>Name</th>
-      <th>Author</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Amount</th>
-      <th>Actions</th>
+      <th class="w-10">Department</th>
+      <th class="w-10">Name</th>
+      <th class="w-10">Author</th>
+      <th class="w-15">Description</th>
+      <th class="w-5">Price</th>
+      <th class="w-5">Amount</th>
+      <th class="sortStyle w-25">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -27,7 +27,17 @@
         <td><%= product.description %></td>
         <td><%= product.price %></td>
         <td><%= product.amount %></td>
-        <td><%= button_to "Delete", product, method: :delete , class:"btn btn-danger", data: {confirm: "Are you sure? "} %></td>
+        <td class="d-flex">
+          <%= link_to "Update", 
+              edit_product_path(product),
+              class: "btn btn-default" 
+          %>
+          <%= button_to "Delete", 
+              product, method: :delete , 
+              class:"btn btn-danger", 
+              data: { confirm: "Are you sure? " } 
+          %>
+        </td>
       <tr>
     <% end %>
   </tbody>
