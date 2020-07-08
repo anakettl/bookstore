@@ -1,49 +1,42 @@
 class ProductsController < ApplicationController
   
+  before_action :set_product, only: [:edit, :update, :destroy]
+
+  def products_params
+    params.require(:product).permit(:name, 
+                                    :author, 
+                                    :description, 
+                                    :price, 
+                                    :amount, 
+                                    :department_id
+                                  )
+  end
+  
+
   def index
     @products = Product.all.order(price: :desc)
   end
 
   def edit
-    id = params[:id]
-    @product = Product.find(id)
-    @departments = Department.all
-    render :new
+    rendering
   end
 
   def update
-    id = params[:id]
-    @product = Product.find(id)
-    data = params.require(:product).permit(:name, 
-                                            :author, 
-                                            :description, 
-                                            :price, 
-                                            :amount, 
-                                            :department_id
-                                          )
-    if @product.update data
+    if @product.update products_params
       flash[:notice] = "This product was succesfully updated!"
       redirect_to root_url
     else
-      @departments = Department.all
-      render :new
+      rendering
     end
   end
   
   def create
-    data = params.require(:product).permit(:name, 
-                                            :author, 
-                                            :description, 
-                                            :price, 
-                                            :amount, 
-                                            :department_id
-                                          )
-    @product = Product.create data
+    @product = Product.create products_params
     if @product.save
       flash[:notice] = "This product was succesfully saved!"
       redirect_to root_path
     else
-      render :new
+      rendering
     end
   end
 
@@ -53,8 +46,6 @@ class ProductsController < ApplicationController
   end
   
   def destroy
-    id = params[:id]
-    @product = Product.find(params[:id])
     if @product.destroy
       flash[:success] = 'Product was successfully deleted.'
       redirect_to root_path
@@ -67,6 +58,15 @@ class ProductsController < ApplicationController
   def search
     @name = params[:name]
     @products = Product.where "name like ?", "%#{@name}%"
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def rendering
+    @departments = Department.all
+    render :new
   end
 
 end
