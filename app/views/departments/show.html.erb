@@ -1,9 +1,27 @@
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @department.name %>
-</p>
+<div class="alert alert-success" role="alert">
+  <h1 class="alert-heading"><%= @department.name %></h1>
+</div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th class="w-10">Department</th>
+      <th class="w-20">Name</th>
+      <th class="w-15">Author</th>
+      <th class="w-30">Description</th>
+      <th class="w-5">Price</th>
+      <th class="w-5">Amount</th>
+      <th colspan="2">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @department_products %>
+  </tbody>
+</table>
 
-<%= link_to 'Edit', edit_department_path(@department) %> |
-<%= link_to 'Back', departments_path %>
+<%= link_to 'Edit', edit_department_path(@department), class: "btn btn-default" %>
