@@ -19,27 +19,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.department.name %></td>
-        <td><%= product.name %></td>
-        <td><%= product.author %></td>
-        <td><%= product.description %></td>
-        <td><%= product.price %></td>
-        <td><%= product.amount %></td>
-        <td class="d-flex">
-          <%= link_to "Update", 
-              edit_product_path(product),
-              class: "btn btn-default" 
-          %>
-          <%= button_to "Delete", 
-              product, method: :delete , 
-              class:"btn btn-danger", 
-              data: { confirm: "Are you sure? " } 
-          %>
-        </td>
-      <tr>
-    <% end %>
+    <%= render @products %>
   </tbody>
 </table>
 </div>
