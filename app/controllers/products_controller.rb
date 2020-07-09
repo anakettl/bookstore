@@ -1,32 +1,21 @@
 class ProductsController < ApplicationController
   
-  before_action :set_product, only: [:edit, :update, :destroy]
-
-  def products_params
-    params.require(:product).permit(:name, 
-                                    :author, 
-                                    :description, 
-                                    :price, 
-                                    :amount, 
-                                    :department_id
-                                  )
-  end
-  
+  before_action :set_product, only: [:edit, :update, :destroy]  
 
   def index
     @products = Product.all.order(price: :desc)
   end
 
   def edit
-    rendering
+    rendering :new
   end
 
   def update
     if @product.update products_params
       flash[:notice] = "This product was succesfully updated!"
-      redirect_to root_url
+      redirect_to root_path
     else
-      rendering
+      rendering :edit
     end
   end
   
@@ -36,7 +25,7 @@ class ProductsController < ApplicationController
       flash[:notice] = "This product was succesfully saved!"
       redirect_to root_path
     else
-      rendering
+      rendering :new
     end
   end
 
@@ -60,13 +49,25 @@ class ProductsController < ApplicationController
     @products = Product.where "name like ?", "%#{@name}%"
   end
 
+  private
+
+  def products_params
+    params.require(:product).permit(:name, 
+                                    :author, 
+                                    :description, 
+                                    :price, 
+                                    :amount, 
+                                    :department_id
+                                  )
+  end
+
   def set_product
     @product = Product.find(params[:id])
   end
 
-  def rendering
+  def rendering(view)
     @departments = Department.all
-    render :new
+    render view
   end
 
 end
