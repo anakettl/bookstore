@@ -10,6 +10,7 @@ class DepartmentsController < ApplicationController
   # GET /departments/1
   # GET /departments/1.json
   def show
+    @department_products = Product.where("department_id = ?", params[:id])
   end
 
   # GET /departments/new
