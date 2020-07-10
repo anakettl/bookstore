@@ -7,13 +7,12 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    rendering :new
+    rendering :edit
   end
 
   def update
-    if @product.update products_params
-      flash[:notice] = "This product was succesfully updated!"
-      redirect_to root_path
+    if @product.update(products_params)
+      redirect_to root_path, notice: 'Product was successfully updated.'
     else
       rendering :edit
     end
