@@ -4,7 +4,7 @@
   </div>
 <% end %>
 <h3>Create a new Product</h3>
-<%= form_for @product, url: {action: "create"} do |form| %>
+<%= form_with(model: @product, local: true) do |form| %>
   <div class="row">
     <div class="col-sm-2">
       <div class="form-group">
@@ -53,6 +53,7 @@
       </div>
     </div>
   </div>
-  <%= form.submit action, class:"btn btn-primary" %>
+
+  <%= form.submit 'Add', class: "btn btn-default" %>
 
 <% end %>
