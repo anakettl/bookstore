@@ -6,4 +6,4 @@ FactoryBot.define do
     price { 32.44 }
     amount { 5 }
 	end
-end 
+end

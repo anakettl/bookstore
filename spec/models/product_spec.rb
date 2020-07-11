@@ -29,5 +29,4 @@ RSpec.describe Product, :type => :model do
     @product.amount = nil
     expect(@product).to_not be_valid 
   end
-
 end
