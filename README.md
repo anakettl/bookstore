@@ -1,9 +1,10 @@
 # README
 
-Este é um projeto de livraria web
+Este é um projeto de livraria web criado com o objetivo de agrupar os conhecimentos adquiridos na rotina do desenvolvimento web usando como principal tecnologia o Ruby on Rails.
 
 # Funcionalidades
 - CRUD de produtos
+- CRUD de departamentos
 
 # Versões:
 
