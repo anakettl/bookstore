@@ -24,7 +24,7 @@ To clone and run this application, you'll need [Git](https://docs.github.com/en/
 Visit the links to know how to install it.
 
 # From your command line:
-`
+``` bash
 #clone this Repository
 $ git clone https://github.com/anakettl/bookstore.git
 
@@ -50,4 +50,4 @@ $ rails server
 
 #run the tests
 $ rspec spec
-`
+```
