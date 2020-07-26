@@ -9,7 +9,7 @@ This is a Project's Bookstore Web  created with the objective to show the acquir
 
 # Versions
 
-* Ruby: 2.5.1
+* Ruby: 2.6.6
 
 * Rails: 5.2.4
 
