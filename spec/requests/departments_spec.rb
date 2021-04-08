@@ -41,6 +41,10 @@ RSpec.describe "Departments", type: :request do
       get '/departments'
     end
 
+    it 'returns http success' do
+      expect(response).to have_http_status(200)
+    end
+
     it 'create a new department' do
       expect(response.body).to include('Roupas')
     end
@@ -61,6 +65,10 @@ RSpec.describe "Departments", type: :request do
       put "/departments/#{department.id}", params: { department: { name: 'Tecnologia' } }
 
       get '/departments'
+    end
+
+    it 'returns http success' do
+      expect(response).to have_http_status(200)
     end
 
     it 'should update the name' do
