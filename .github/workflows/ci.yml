@@ -50,9 +50,6 @@ jobs:
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
     
-    - name: Update selenium webdriver
-      run: |
-        - sudo gem update selenium-webdriver
 
     - name: Run RSpec
       run: COVERAGE=true bundle exec rspec --require rails_helper

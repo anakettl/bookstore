@@ -48,6 +48,6 @@ RSpec.configure do |config|
   Capybara.configure do |config|
     config.default_max_wait_time = 10 #seconds
     config.default_driver = :selenium
-    # config.always_include_port = true
+    config.always_include_port = true
   end
 end
