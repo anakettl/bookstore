@@ -62,6 +62,10 @@ group :test do
   gem 'faker', '~> 1.8', '>= 1.8.7'
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
+  gem 'selenium-webdriver'
+  gem 'launchy' # `save_and_open_page` in integration specs
+  gem 'capybara'
+  gem 'webdrivers', '~> 4.0'
   gem 'simplecov', require: false
 end
 
