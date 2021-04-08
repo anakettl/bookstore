@@ -49,6 +49,10 @@ jobs:
         RAILS_ENV: test
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
+    
+    - name: Update chrome driver
+      run: |
+        - chromedriver-update 2.43
 
     - name: Run RSpec
       run: COVERAGE=true bundle exec rspec --require rails_helper
