@@ -1,4 +1,4 @@
-<%= form_with(model: department, local: true) do |form| %>
+<%= form_with(model: department, local: true, id: "create-department-form") do |form| %>
   <% if department.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(department.errors.count, "error") %> prohibited this department from being saved:</h2>
