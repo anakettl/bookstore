@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Products", type: :request do
   context 'GET #index' do
+    # This is a request test. a GET to type request is made to index in the url '/products'. 
+    # The expected response is that the response status is 200
     before do
       get '/products'
     end
@@ -12,6 +14,16 @@ RSpec.describe "Products", type: :request do
   end
 
   context 'POST #create with params' do
+    # This is a request test. a POST type request is made to create the url '/products'. 
+    # with params name: 
+          # 'name': 'Quincas Borba', 
+          # 'author': 'Machado de Assis',
+          # 'description': 'Quincas Borba é um romance escrito por Machado de Assis, desenvolvido em princípio como folhetim na revista A Estação, entre os anos de 1886 e 1891',
+          # 'price': 22.90,
+          # 'amount': 7,
+          # 'department_id': @department.id
+    # Then the method performs a GET request for /products
+    # The expected response is for the request body to include the product[name] parameter sent
     before do
       @department = FactoryBot.create(:department)
       post '/products', params: 
