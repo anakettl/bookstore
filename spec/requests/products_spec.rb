@@ -15,7 +15,7 @@ RSpec.describe "Products", type: :request do
 
   context 'POST #create with params' do
     # This is a request test. a POST type request is made to create the url '/products'. 
-    # with params name: 
+    # with params: 
           # 'name': 'Quincas Borba', 
           # 'author': 'Machado de Assis',
           # 'description': 'Quincas Borba é um romance escrito por Machado de Assis, desenvolvido em princípio como folhetim na revista A Estação, entre os anos de 1886 e 1891',
@@ -66,6 +66,8 @@ RSpec.describe "Products", type: :request do
 
     it 'create a new product' do
       expect(response.body).to include(@product.name)
+      expect(response.body).to include(@product.author)
+      expect(response.body).to include(@product.description)
     end
   end
 
