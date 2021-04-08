@@ -50,6 +50,9 @@ jobs:
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
 
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@v1.5
+
     - name: Run RSpec
       run: COVERAGE=true bundle exec rspec --require rails_helper
       env:
