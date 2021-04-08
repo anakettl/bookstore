@@ -49,11 +49,6 @@ jobs:
         RAILS_ENV: test
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
-    - name: Analyze with SonarCloud
-      uses: sonarsource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
     - name: Run RSpec
       run: COVERAGE=true bundle exec rspec --require rails_helper
