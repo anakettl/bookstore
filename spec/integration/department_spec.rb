@@ -7,7 +7,7 @@ RSpec.feature "Department", :type => :feature do
       puts "#{e.message}"
     end
   end
-  context '#create' do
+  context '#create feature' do
     it 'with name valid' do
       begin
         visit "/departments/new"
@@ -24,7 +24,7 @@ RSpec.feature "Department", :type => :feature do
       end
     end
   end
-  context '#update' do
+  context '#update feature' do
     it 'with name valid' do
       begin
         visit "/departments/new"
@@ -49,7 +49,7 @@ RSpec.feature "Department", :type => :feature do
       end
     end
   end
-  context '#delete' do
+  context '#delete feature' do
     it 'with delete yes' do
       begin
         visit "/departments/new"
