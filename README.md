@@ -1,3 +1,5 @@
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=anakettl_bookstore)
+
 # README
 
 This is a Project's Bookstore Web  created with the objective to show the acquired knowledge in the web developer daily using Ruby on Rails as main technology.
