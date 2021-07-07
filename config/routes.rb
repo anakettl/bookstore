@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  get 'homepage/index'
   resources :departments
   get "products/search", to: "products#search", as: :search_product
   resources :products
-  root to: "products#index"
+  root to: "homepage#index"
 end

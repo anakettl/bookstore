@@ -7,23 +7,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= javascript_pack_tag 'Index' %>
   </head>
 
   <body>
-    <%= nav_bar brand: "Bookstore", brand_link: root_url do %>
-      <%= menu_group do %>
-        <%= menu_item "Create new Product", new_product_path %>
-        <%= menu_item "Departments", departments_path %>
-      <% end %>
-      <%= form_tag search_product_path, method: :get, class: "navbar-form navbar-right" do %>
-        <div class="form-group">
-          <%= text_field_tag :name, @name, class: "form-control" %>
-          <%= button_to "Search", nil, class:"btn btn-default" %>
-        </div>
-      <% end %>
-    <% end %>
-    <div class="container">
-      <%= yield %>
-    </div>
+    <%= yield %>
   </body>
 </html>
